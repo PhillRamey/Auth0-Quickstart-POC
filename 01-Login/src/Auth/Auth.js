@@ -84,6 +84,12 @@ export default class Auth {
     // Remove isLoggedIn flag from localStorage
     localStorage.removeItem('isLoggedIn');
 
+    // Call the logout endpoint
+    this.auth0.logout({
+      returnTo: 'http://localhost:3000',
+      client_id: AUTH_CONFIG.clientId
+    });
+
     // navigate to the home route
     history.replace('/home');
   }
